@@ -3,101 +3,118 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kod Kopyalama</title>
-
+<title>50 Ücretsiz Steam Oyunu</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #101827, #202c44);
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    width: 90%;
-    max-width: 500px;
-    background: #ffffff;
-    padding: 35px 25px;
-    border-radius: 18px;
-    text-align: center;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-}
-
-h2 {
-    margin-bottom: 25px;
-    color: #202c44;
-}
-
-.code {
-    background: #edf0f5;
-    padding: 18px 12px;
-    border-radius: 10px;
-    font-size: 13px;
-    word-break: break-all;
-    color: #222;
-    margin-bottom: 20px;
-    user-select: all;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background: #2563eb;
+    font-family: Arial;
+    background: #171a21;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+    padding: 20px;
 }
 
-button:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+h1 {
+    text-align: center;
 }
 
-#message {
-    margin-top: 15px;
-    color: #16a34a;
-    font-size: 14px;
+.game {
+    background: #252a34;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 5px;
+}
+
+a {
+    color: #66c0f4;
+    margin-left: 12px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h2>Kodunu Kopyala</h2>
+<h1>50 Ücretsiz Steam Oyunu</h1>
 
-    <div class="code" id="myCode">05abd56895228ef01001f3a6bee7c90aaa95dca595acb4f724f1378269fa663a56</div>
-
-    <button onclick="copyCode()">Kopyala</button>
-
-    <p id="message"></p>
-</div>
+<div id="games"></div>
 
 <script>
-function copyCode() {
-    const code = document.getElementById("myCode").innerText;
+const games = [
+["Counter-Strike 2",730],
+["Dota 2",570],
+["PUBG: BATTLEGROUNDS",578080],
+["Apex Legends",1172470],
+["Team Fortress 2",440],
+["Warframe",230410],
+["Marvel Rivals",2767030],
+["Overwatch",2357570],
+["War Thunder",236390],
+["Destiny 2",1085660],
+["Unturned",304930],
+["Once Human",2139460],
+["Palia",2707930],
+["The Sims 4",1222670],
+["VRChat",438100],
+["EVE Online",8500],
+["Guild Wars 2",1284210],
+["Lost Ark",1599340],
+["World of Warships",552990],
+["World of Tanks Blitz",444200],
+["THE FINALS",2073850],
+["Brawlhalla",291550],
+["SMITE 2",2437170],
+["Delta Force",2507950],
+["Aimlabs",714010],
+["eFootball",1665460],
+["Stumble Guys",1677740],
+["Crab Game",1782210],
+["Super Animal Royale",843380],
+["Fall Guys",1091500],
+["Path of Exile",238960],
+["Path of Exile 2",2694490],
+["Yu-Gi-Oh! Master Duel",1449850],
+["Magic: The Gathering Arena",2141910],
+["Star Trek Online",9900],
+["MapleStory",216150],
+["Wuthering Waves",3513350],
+["Zenless Zone Zero",3222140],
+["Where Winds Meet",3564740],
+["The First Descendant",2074920],
+["Doki Doki Literature Club!",698780],
+["HoloCure",2420510],
+["Supermarket Together",2709570],
+["OpenTTD",1536610],
+["Emily is Away",417860],
+["SCP: Secret Laboratory",700330],
+["Sky: Children of the Light",2325290],
+["Limbus Company",1973530],
+["IdleOn",1476970],
+["Unciv",1659080]
+];
 
-    navigator.clipboard.writeText(code).then(() => {
-        document.getElementById("message").innerText =
-            "✓ Başarıyla kopyalandı!";
-    }).catch(() => {
-        document.getElementById("message").innerText =
-            "Kopyalama başarısız oldu.";
-    });
-}
+const container = document.getElementById("games");
+
+games.forEach((game, index) => {
+    const [name, id] = game;
+
+    container.innerHTML += `
+        <div class="game">
+            <b>${index + 1}. ${name}</b>
+
+            <a href="https://store.steampowered.com/app/${id}/">
+                Kütüphaneye Ekle
+            </a>
+
+            <a href="https://store.steampowered.com/app/${id}/"
+               target="_blank">
+                Mağaza Sayfası
+            </a>
+        </div>
+    `;
+});
 </script>
 
 </body>
